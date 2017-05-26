@@ -1,4 +1,4 @@
-package com.kee;
+package com.yelot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

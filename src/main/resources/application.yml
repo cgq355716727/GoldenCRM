@@ -20,7 +20,7 @@ spring:
 
 mybatis:
   mapperLocations: classpath:dao/*.xml
-  typeAliasesPackage: com.kee.mapper
+  typeAliasesPackage: com.yelotot.mapper
 
 logging:
-  file: ccu_data.log
+  file: golden_crm.log

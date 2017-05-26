@@ -1,4 +1,4 @@
-package com.kee;
+package com.yelot;
 
 import com.yelot.entity.User;
 import com.yelot.mapper.UserMapper;
