@@ -8,14 +8,46 @@ import java.util.Date;
  */
 public class User {
     private Long id;
-    private String name;
-    private String password;
-    private Date create_at;
-    private Date update_at;
-    private String realname;
-    private String phone;
-    private String emp_no;
+    /**
+     * 名称
+     */
+    private String name = "";
+    /**
+     * 密码
+     */
+    private String password = "";
+
+    /**
+     * 真实名称
+     */
+    private String realname = "";
+    /**
+     * 手机号码
+     */
+    private String phone = "";
+    /**
+     * 员工编号
+     */
+    private String emp_no = "";
+
+    private Long shop_id;
+
+    /**
+     * 所属的门店
+     */
     private Shop shop;
+    /**
+     * 是否被删除，或离职的员工
+     */
+    private int is_alive;
+    /**
+     * 创建时间
+     */
+    private Date create_at;
+    /**
+     * 更新时间
+     */
+    private Date update_at;
 
     public User(){
 
@@ -67,6 +99,14 @@ public class User {
         this.update_at = update_at;
     }
 
+    public int getIs_alive() {
+        return is_alive;
+    }
+
+    public void setIs_alive(int is_alive) {
+        this.is_alive = is_alive;
+    }
+
     public String getRealname() {
         return realname;
     }
@@ -97,5 +137,13 @@ public class User {
 
     public void setShop(Shop shop) {
         this.shop = shop;
+    }
+
+    public Long getShop_id() {
+        return shop_id;
+    }
+
+    public void setShop_id(Long shop_id) {
+        this.shop_id = shop_id;
     }
 }

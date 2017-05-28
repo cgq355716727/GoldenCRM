@@ -34,7 +34,7 @@ public class UserMapperTest {
   public void save() throws Exception {
     for (int i = 0; i < 10; i++) {
       User user = new User("jege" + i, 25 + i+"");
-      userMapper.insert(user);
+      userMapper.save(user);
     }
   }
 

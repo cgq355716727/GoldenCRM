@@ -8,10 +8,25 @@ import java.util.Date;
  */
 public class Shop {
     private Long id;
+    /**
+     * 门店名称
+     */
     private String name;
+    /**
+     * 地址
+     */
     private String address;
+    /**
+     * 联系方式
+     */
     private String phone;
+    /**
+     * 创建时间
+     */
     private Date create_at;
+    /**
+     * 更新时间
+     */
     private Date update_at;
 
     public Shop(){

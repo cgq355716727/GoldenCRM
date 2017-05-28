@@ -1,10 +1,9 @@
 package com.yelot.mapper;
 
 import com.yelot.entity.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -12,22 +11,66 @@ import java.util.List;
  * Created by yelot on 17/5/15.
  */
 @Mapper
+@Repository
 public interface UserMapper {
 
 
-    @Insert("insert into t_user(name,password,realname,phone,emp_no,create_at,update_at,shop_id) " +
-            "values(#{name},#{password},#{realname},#{phone},#{empNo},#{createAt},#{updateAt},#{shop.id})")
-    void insert(User user);
+    /**
+     * 查找一个用户详情
+     * @param id
+     * @return
+     */
+    @Select("select id,name,password,realname,phone,emp_no,is_alive,create_at,update_at,shop_id shop_id " +
+            "from t_user where id = #{id}")
+    User find(Long id);
 
-    @Select("select id,name,password from t_user where limit #{start},#{size}")
-    List<User> findByPage(Long start,Long size);
 
+    /**
+     * 新建
+     * @param user
+     */
+    @Insert("save into t_user(name,password,realname,phone,emp_no,is_alive,create_at,update_at,shop_id) " +
+            "values(#{name},#{password},#{realname},#{phone},#{emp_no},,#{is_alive},#{create_at},#{update_at}},#{shop.id})")
+    void save(User user);
+
+    /**
+     * 更新用户
+     * @param user
+     */
+    @Update("update t_user set name = #{name},password=#{password},realname=#{realname},phone=#{phone},emp_no=#{emp_no}," +
+            "is_alive=#{is_alive},create_at=#{create_at},update_at=#{update_at} where id = #{id}")
+    void update(User user);
+
+    /**
+     * 更新用户密码
+     * @param password
+     */
+    @Update("update t_user set password = #{password} where id = #{id}")
+    void updatePassword(String password);
+
+    /**
+     * 分页查找
+     * @param start
+     * @param size
+     * @return
+     */
+    @Select("select * from t_user limit #{start},#{size}")
+    List<User> findByPage(@Param("start") Integer start,@Param("size") Integer size);
+
+    /**
+     * 通过名称模糊查找
+     * @param name
+     * @return
+     */
     @Select("select id,name,password from t_user where name like #{name}")
     List<User> findByNameLike(String name);
 
-    @Delete("delete from t_user")
-    void deleteAll();
 
-    @Delete("delete from t_user where id = #{id}")
-    void delete(Long id);
+    /**
+     * 删除为更新该记录状态is_alive = 0
+     * @param alive
+     * @param id
+     */
+    @Delete("update from t_user set is_alive = #{alive} where id = #{id}")
+    void updateAlive(int alive,Long id);
 }

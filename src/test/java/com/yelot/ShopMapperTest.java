@@ -23,8 +23,8 @@ public class ShopMapperTest {
     @Test
     public void save(){
         Shop shop = new Shop("上海门店","上海长寿路22号","1333333");
-        shop.setCreateAt(new Date());
-        shop.setUpdateAt(new Date());
+        shop.setCreate_at(new Date());
+        shop.setUpdate_at(new Date());
         shopMapper.save(shop);
     }
 }
