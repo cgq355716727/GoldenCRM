@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Created by yelot on 17/5/14.
+ * Created by kee on 17/5/14.
  */
 @RestController
 @RequestMapping("user")
@@ -38,13 +38,24 @@ public class UserController {
         return new ResponseData(ResponseData.SUCCESS,ResponseData.SUCCESS_MESSAGE);
     }
 
-    @RequestMapping("delete")
-    public ResponseData delete(Long id){
-        userService.updateAlive(AliveStatus.DEAD.getCode(),id);
+    /**
+     * 更新用户状态is_alive = 0
+     * @param id
+     * @return
+     */
+    @RequestMapping("update-alive")
+    public ResponseData updateAlive(Integer alive,Long id){
+        userService.updateAlive(alive,id);
         return new ResponseData(ResponseData.SUCCESS,ResponseData.SUCCESS_MESSAGE);
 
     }
 
+    /**
+     * 查询所有用户，包含已删除状态的用户
+     * @param page
+     * @param size
+     * @return
+     */
     @RequestMapping("find-by-page")
     public List<User> findByPage(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer size){
         if(page <= 0){

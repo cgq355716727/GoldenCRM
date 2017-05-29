@@ -39,7 +39,7 @@ public class UserService {
         return userMapper.findByNameLike(name);
     }
 
-    public void updateAlive(int alive,Long id){
+    public void updateAlive(Integer alive,Long id){
         userMapper.updateAlive(alive,id);
     }
 

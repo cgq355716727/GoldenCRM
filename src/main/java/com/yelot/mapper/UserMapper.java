@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
+ * 参数传递：如果是一个参数，不需要@Param 注解，如果多余1个参数，则需要@Param
  * Created by yelot on 17/5/15.
  */
 @Mapper
@@ -20,7 +21,7 @@ public interface UserMapper {
      * @param id
      * @return
      */
-    @Select("select id,name,password,realname,phone,emp_no,is_alive,create_at,update_at,shop_id shop_id " +
+    @Select("select id,name,password,realname,phone,emp_no,is_alive,create_at,update_at,shop_id " +
             "from t_user where id = #{id}")
     User find(Long id);
 
@@ -29,7 +30,7 @@ public interface UserMapper {
      * 新建
      * @param user
      */
-    @Insert("save into t_user(name,password,realname,phone,emp_no,is_alive,create_at,update_at,shop_id) " +
+    @Insert("insert into t_user(name,password,realname,phone,emp_no,is_alive,create_at,update_at,shop_id) " +
             "values(#{name},#{password},#{realname},#{phone},#{emp_no},,#{is_alive},#{create_at},#{update_at}},#{shop.id})")
     void save(User user);
 
@@ -68,9 +69,10 @@ public interface UserMapper {
 
     /**
      * 删除为更新该记录状态is_alive = 0
-     * @param alive
+     * @Param("is_alive") Integer is_alive,@Param("id")
+     * @param is_alive
      * @param id
      */
-    @Delete("update from t_user set is_alive = #{alive} where id = #{id}")
-    void updateAlive(int alive,Long id);
+    @Delete("update t_user set is_alive = 0 where id = #{id}")
+    void updateAlive(@Param("is_alive") Integer is_alive,@Param("id")Long id);
 }
