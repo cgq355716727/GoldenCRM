@@ -6,6 +6,7 @@ package com.yelot.entity;
 public class Atrribute {
     private Long id;
     private String attribute_name;
+    private Long category_id;
     private Category category;
 
     public Long getId() {
@@ -14,6 +15,14 @@ public class Atrribute {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
     }
 
     public String getAttribute_name() {

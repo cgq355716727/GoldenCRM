@@ -7,6 +7,7 @@ public class Brand {
     private Long id;
     private String brand_name;
     private String description;
+    private Long category_id;
     private Category category;
 
     public Brand(){
@@ -24,6 +25,14 @@ public class Brand {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
     }
 
     public String getBrand_name() {
