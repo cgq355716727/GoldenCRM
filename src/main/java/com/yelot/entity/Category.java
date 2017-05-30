@@ -5,7 +5,13 @@ package com.yelot.entity;
  */
 public class Category {
     private Long id;
+    /**
+     * 分类名称：当前分类（珠宝，皮具，腕表，定制）
+     */
     private String name;
+    /**
+     * 排序显示
+     */
     private int sort;
 
     public Category(){

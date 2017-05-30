@@ -3,7 +3,7 @@ package com.yelot.entity;
 /**
  * Created by kee on 17/5/30.
  */
-public class Privileage {
+public class Privilege {
     private Long id;
     private String name;
 

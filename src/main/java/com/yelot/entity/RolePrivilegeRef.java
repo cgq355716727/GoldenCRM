@@ -3,10 +3,10 @@ package com.yelot.entity;
 /**
  * Created by kee on 17/5/30.
  */
-public class RolePrivileageRef {
+public class RolePrivilegeRef {
     private Long id;
     private Long role_id;
-    private Long privileage_id;
+    private Long privilege_id;
 
     public Long getId() {
         return id;
@@ -24,11 +24,11 @@ public class RolePrivileageRef {
         this.role_id = role_id;
     }
 
-    public Long getPrivileage_id() {
-        return privileage_id;
+    public Long getPrivilege_id() {
+        return privilege_id;
     }
 
-    public void setPrivileage_id(Long privileage_id) {
-        this.privileage_id = privileage_id;
+    public void setPrivilege_id(Long privilege_id) {
+        this.privilege_id = privilege_id;
     }
 }
