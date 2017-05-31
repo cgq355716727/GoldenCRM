@@ -5,9 +5,14 @@ package com.yelot.entity;
  */
 public class Atrribute {
     private Long id;
+    /**
+     * 熟悉名称,属性值，唯一
+     */
     private String attribute_name;
-    private Long category_id;
-    private Category category;
+    /**
+     * 属性类别：1：下拉选择，2，文本输入框
+     */
+    private int type;
 
     public Long getId() {
         return id;
@@ -15,14 +20,6 @@ public class Atrribute {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
     }
 
     public String getAttribute_name() {
@@ -33,11 +30,11 @@ public class Atrribute {
         this.attribute_name = attribute_name;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getType() {
+        return type;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setType(int type) {
+        this.type = type;
     }
 }
