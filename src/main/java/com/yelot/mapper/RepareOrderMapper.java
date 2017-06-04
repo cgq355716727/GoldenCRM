@@ -25,4 +25,6 @@ public interface RepareOrderMapper {
     void save(RepareOrder repareOrder);
 
 
+    @Select("select * from t_repare_order where order_no = #{order_no}")
+    RepareOrder findByOrderNo(String order_no);
 }
