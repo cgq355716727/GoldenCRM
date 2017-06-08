@@ -32,6 +32,12 @@ public class RepareOrderService {
         return repareOrderMapper.find(id);
     }
 
+    /**
+     * 保存订单业务逻辑
+     * @param repareOrder
+     * @param repareOrderItem
+     * @param repareOrderItemImage
+     */
     void save(RepareOrder repareOrder, RepareOrderItem repareOrderItem, RepareOrderItemImage repareOrderItemImage){
         //step 1:首先保存订单表
         repareOrderMapper.save(repareOrder);
