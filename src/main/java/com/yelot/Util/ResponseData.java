@@ -1,12 +1,14 @@
 package com.yelot.Util;
 
+import java.util.HashMap;
+
 /**
  * Created by kee on 17/5/26.
  */
 public class ResponseData {
     private int code;
     private String  message;
-    private Object data;
+    private HashMap<String, Object> data = new HashMap<String, Object>();
 
     public static int SUCCESS = 200;
     public static int FAIL = 500;
@@ -39,11 +41,17 @@ public class ResponseData {
         this.message = message;
     }
 
-    public Object getData() {
-        return data;
-    }
+	public HashMap<String, Object> getData() {
+		return data;
+	}
 
-    public void setData(Object data) {
-        this.data = data;
-    }
+	public void setData(HashMap<String, Object> data) {
+		this.data = data;
+	}
+
+	public ResponseData putDataValue(String key, Object value) {
+		this.data.put(key, value);
+		return this;
+	}
+	
 }
