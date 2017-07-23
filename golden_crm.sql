@@ -90,8 +90,7 @@ CREATE TABLE `t_shop` (
   `address` varchar(255) DEFAULT NULL COMMENT '联系地址',
   `phone` varchar(20) DEFAULT NULL COMMENT '联系方式',
   `is_alive` tinyint(11) DEFAULT NULL COMMENT '状态：0.无效，1.有效',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `user_name` (`name`) USING BTREE
+  PRIMARY KEY (`id`)
 ) COMMENT '门店信息表' ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
